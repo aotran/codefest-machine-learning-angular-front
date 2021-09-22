@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DATA } from '../mock-data';
-import { DataPoint } from 'src/datapoint';
+import { DataPoint } from '../datapoint';
 import { FetchApiService } from '../fetch-api.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { FetchApiService } from '../fetch-api.service';
 export class DataTableComponent implements OnInit {
 
   datapoints = DATA;
-  prediction: string = '';
+  prediction: string = JSON.stringify(DATA[0]);
 
   constructor(private fetchApi: FetchApiService) { }
 
@@ -19,8 +19,14 @@ export class DataTableComponent implements OnInit {
   }
 
   sendData(point: DataPoint) {
-    //do nothing right now
-    this.fetchApi.sendData(point).subscribe(json => {
+    //conversion to object format
+    let convertedPoint = {data: ''};
+    convertedPoint.data += point.time + ",";
+    convertedPoint.data += point.data + ",";
+    convertedPoint.data += point.amount;
+
+    //send request as JSON string
+    this.fetchApi.sendData(convertedPoint).subscribe(json => {
       this.prediction = JSON.stringify(json);
     });
   }

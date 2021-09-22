@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { DataPoint } from 'src/datapoint';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ import { DataPoint } from 'src/datapoint';
 export class FetchApiService {
   private apiUrl = ' https://1bpuomwyz7.execute-api.us-east-1.amazonaws.com/dev';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'api-key': 'q3WKqZFmM73YpLnX0dfKJ1POpxFnQTte7iHBXLlT'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'X-Api-Key': 'q3WKqZFmM73YpLnX0dfKJ1POpxFnQTte7iHBXLlT'})
   };
 
   constructor(private http: HttpClient) {
@@ -21,7 +20,7 @@ export class FetchApiService {
       catchError(this.handleError<JSON>('getData', JSON)));
   }
 
-  sendData(data: DataPoint): Observable<JSON> {
+  sendData(data: Object): Observable<JSON> {
     return this.http.post<JSON>(this.apiUrl, JSON.stringify(data), this.httpOptions).pipe(
       catchError(this.handleError<JSON>('sendData', JSON))
     );
