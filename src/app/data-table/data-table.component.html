@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Transaction Amount</th>
+        <th>Fraudulent?</th>
+        <th>Send</th>
+        <th>Prediction</th>
+    </tr>
+    <tbody>
+        <tr *ngFor="let point of datapoints" [ngClass]="point.fraudClass ? 'fraud' : 'valid'">
+            <td>{{point.time}}</td>
+            <td>{{point.amount | currency:'USD'}}</td>
+            <td>{{point.fraudClass}}</td>
+            <td><button (click)="sendData(point)">Predict</button></td>
+            <td>{{prediction}}</td>
+        </tr>
+    </tbody>
+</table>
