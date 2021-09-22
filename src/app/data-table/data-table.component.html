@@ -1,4 +1,5 @@
-<table>
+<p-table [value]="datapoints">
+    <ng-template pTemplate="header">
     <tr>
         <th>Time</th>
         <th>Transaction Amount</th>
@@ -6,13 +7,14 @@
         <th>Send</th>
         <th>Prediction</th>
     </tr>
-    <tbody>
-        <tr *ngFor="let point of datapoints" [ngClass]="point.fraudClass ? 'fraud' : 'valid'">
+    </ng-template>
+    <ng-template pTemplate="body" let-point>
+        <tr [ngClass]="point.fraudClass ? 'fraud' : 'valid'">
             <td>{{point.time}}</td>
             <td>{{point.amount | currency:'USD'}}</td>
             <td>{{point.fraudClass}}</td>
             <td><button (click)="sendData(point)">Predict</button></td>
             <td>{{prediction}}</td>
         </tr>
-    </tbody>
-</table>
+    </ng-template>
+</p-table>

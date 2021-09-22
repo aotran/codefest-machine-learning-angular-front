@@ -7,6 +7,12 @@ import { AppComponent } from './app.component';
 import { ParseApiComponent } from './parse-api/parse-api.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { FormComponent } from './form/form.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {RippleModule} from 'primeng/ripple';
+import {TabViewModule} from 'primeng/tabview';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,14 @@ import { FormComponent } from './form/form.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputTextModule,
+    ButtonModule,
+    RadioButtonModule,
+    RippleModule,
+    TabViewModule,
+    TableModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
