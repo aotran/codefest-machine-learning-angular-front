@@ -1,5 +1,4 @@
-<form [formGroup]="predictionForm">
-<div class="p-grid p-fluid">
+<div class="p-grid p-fluid" [formGroup]="predictionForm">
     <div class="p-col-12 p-md-4">
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
@@ -7,9 +6,6 @@
             formControlName="time"
             pInputText placeholder="Time">         
         </div>
-    </div>
-    
-    <div class="p-col-12 p-md-4">
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon">$</span>
             <input type="text" 
@@ -19,6 +15,6 @@
             <span class="p-inputgroup-addon">.00</span>      
         </div>
     </div>
-    <button>Submit</button>
+    <button (click)="sendData()">Submit</button>
 </div>
-</form>
+<!-- <div *ngIf="submitted">Sagemaker model predicts this datapoint to be: {{submitted}}</div> -->
