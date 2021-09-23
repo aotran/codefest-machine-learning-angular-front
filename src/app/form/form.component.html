@@ -1,0 +1,24 @@
+<form [formGroup]="predictionForm">
+<div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-4">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text"     
+            formControlName="time"
+            pInputText placeholder="Time">         
+        </div>
+    </div>
+    
+    <div class="p-col-12 p-md-4">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">$</span>
+            <input type="text" 
+            pInputText placeholder="Amount"
+            formControlName="amount"
+            >   
+            <span class="p-inputgroup-addon">.00</span>      
+        </div>
+    </div>
+    <button>Submit</button>
+</div>
+</form>
