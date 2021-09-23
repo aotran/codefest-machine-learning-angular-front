@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 .fraud {
     background-color: pink;
 }
@@ -7,4 +8,10 @@
 .selected {
     border: 1px solid black;
     text-decoration: underline;
+}
+table {
+    width: 50%;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;  
 }

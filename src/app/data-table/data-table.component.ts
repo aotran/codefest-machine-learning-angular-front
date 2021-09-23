@@ -12,7 +12,7 @@ export class DataTableComponent implements OnInit {
 
   datapoints = DATA;
   prediction?: string;
-  selectedPoint?: DataPoint;
+  displayedColumns: string[] = ['Time', 'Transaction Amount', 'Fraudulent?', 'Send'];
 
   constructor(private fetchApi: FetchApiService) { }
 
@@ -20,7 +20,6 @@ export class DataTableComponent implements OnInit {
   }
 
   sendData(point: DataPoint) {
-    this.selectedPoint = point;
     //conversion to object format
     let convertedPoint = {data: ''};
     convertedPoint.data += point.time + ",";
