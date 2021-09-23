@@ -11,7 +11,8 @@ import { FetchApiService } from '../fetch-api.service';
 export class DataTableComponent implements OnInit {
 
   datapoints = DATA;
-  prediction: string = JSON.stringify(DATA[0]);
+  prediction?: string;
+  selectedPoint?: DataPoint;
 
   constructor(private fetchApi: FetchApiService) { }
 
@@ -19,6 +20,7 @@ export class DataTableComponent implements OnInit {
   }
 
   sendData(point: DataPoint) {
+    this.selectedPoint = point;
     //conversion to object format
     let convertedPoint = {data: ''};
     convertedPoint.data += point.time + ",";

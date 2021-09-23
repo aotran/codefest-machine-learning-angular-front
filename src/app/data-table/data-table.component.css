@@ -4,3 +4,7 @@
 .valid {
     background-color: lightgreen;
 }
+.selected {
+    border: 1px solid black;
+    text-decoration: underline;
+}
