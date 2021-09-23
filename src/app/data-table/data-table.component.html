@@ -7,11 +7,11 @@
     </tr>
     <tbody>
         <tr *ngFor="let point of datapoints" [ngClass]="point.fraudClass ? 'fraud' : 'valid'">
-            <td>{{point.time}}</td>
-            <td>{{point.amount | currency:'USD'}}</td>
-            <td>{{point.fraudClass}}</td>
-            <td><button (click)="sendData(point)">Predict</button></td>
+            <td [class.selected]="point === selectedPoint">{{point.time}}</td>
+            <td [class.selected]="point === selectedPoint">{{point.amount | currency:'USD'}}</td>
+            <td [class.selected]="point === selectedPoint">{{point.fraudClass}}</td>
+            <td [class.selected]="point === selectedPoint"><button (click)="sendData(point)">Predict</button></td>
         </tr>
     </tbody>
 </table>
-<div>{{prediction}}</div>
+<div *ngIf="prediction">Sagemaker model predicts this datapoint to be: {{prediction}}</div>
