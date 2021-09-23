@@ -7,14 +7,13 @@
             pInputText placeholder="Time">         
         </div>
         <div class="p-inputgroup">
-            <span class="p-inputgroup-addon">$</span>
             <input type="text" 
             pInputText placeholder="Amount"
             formControlName="amount"
             >   
-            <span class="p-inputgroup-addon">.00</span>      
+                  
         </div>
     </div>
-    <button (click)="sendData()">Submit</button>
+    <button mat-button color="primary" (click)="sendData()">Submit</button>
 </div>
 <!-- <div *ngIf="submitted">Sagemaker model predicts this datapoint to be: {{submitted}}</div> -->
