@@ -12,6 +12,7 @@ export class DataTableComponent implements OnInit {
 
   datapoints = DATA;
   prediction: string = JSON.stringify(DATA[0]);
+  displayedColumns: string[] = ['Time', 'Transaction Amount', 'Fraudulent?', 'Send'];
 
   constructor(private fetchApi: FetchApiService) { }
 

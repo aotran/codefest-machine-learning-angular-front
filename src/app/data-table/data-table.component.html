@@ -1,17 +1,26 @@
-<table>
-    <tr>
-        <th>Time</th>
-        <th>Transaction Amount</th>
-        <th>Fraudulent?</th>
-        <th>Send</th>
-    </tr>
-    <tbody>
-        <tr *ngFor="let point of datapoints" [ngClass]="point.fraudClass ? 'fraud' : 'valid'">
-            <td>{{point.time}}</td>
-            <td>{{point.amount | currency:'USD'}}</td>
-            <td>{{point.fraudClass}}</td>
-            <td><button (click)="sendData(point)">Predict</button></td>
-        </tr>
-    </tbody>
+<mat-divider></mat-divider>
+<table mat-table [dataSource]="datapoints" class="mat-elevation-z8"  >
+    <ng-container matColumnDef="Time">
+        <th mat-header-cell *matHeaderCellDef> Time </th>
+        <td mat-cell *matCellDef="let point" [ngClass]="point.fraudClass ? 'fraud' : 'valid'"> 
+            {{point.time}} </td> 
+    </ng-container>
+    <ng-container matColumnDef="Transaction Amount">
+        <th mat-header-cell *matHeaderCellDef>Transaction Amount </th>
+        <td mat-cell *matCellDef="let point" [ngClass]="point.fraudClass ? 'fraud' : 'valid'"> 
+            {{point.amount | currency:'USD'}} </td> 
+    </ng-container>
+    <ng-container matColumnDef="Fraudulent?" >
+        <th mat-header-cell *matHeaderCellDef> Fraudulent? </th>
+        <td mat-cell *matCellDef="let point" [ngClass]="point.fraudClass ? 'fraud' : 'valid'"> 
+            {{point.fraudClass}} </td> 
+    </ng-container>
+    <ng-container matColumnDef="Send" >
+        <th mat-header-cell *matHeaderCellDef> Send </th>
+        <td mat-cell *matCellDef="let point" [ngClass]="point.fraudClass ? 'fraud' : 'valid'"> 
+            <button color="primary" (click)="sendData(point)">Predict</button> </td> 
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <div>{{prediction}}</div>

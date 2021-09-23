@@ -1,6 +1,14 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 .fraud {
     background-color: pink;
 }
 .valid {
     background-color: lightgreen;
+}
+
+table {
+    width: 50%;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;  
 }
